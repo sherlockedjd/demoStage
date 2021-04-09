@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import javax.servlet.ServletContext;
+//import javax.servlet.ServletContext;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -82,105 +82,105 @@ public class MyResource {
 		return "pdf generated sucessfully";
 	}
 
-	@GET
-	@Path("/html")
-	@Produces(MediaType.TEXT_HTML)
-	public String gotItHtmlTemplate(@Context ServletContext ctx) throws InvalidPasswordException, IOException {
-		 MustacheFactory mf = new DefaultMustacheFactory();
-		 //String path="C:\\users\\THE LAPTOP STORE\\Downloads\todo.mustache";
-		 Mustache m = mf.compile("todonested.mustache");
-		 Todo_Likes likes=new Todo_Likes();
-		 likes.setCount(3);
-		 List<Todo> todos=new ArrayList<Todo>();
-		 List<Todo_Tasks> todo_tasks=new ArrayList<Todo_Tasks>();
-		 Todo_Tasks todo_task=new Todo_Tasks();
-		 todo_task.setId(1);
-		 todo_task.setDescription("task #1 description for todo #1");
-		 todo_task.setStatus("completed");
-		 todo_task.setTodo_Id(1);
-		 todo_tasks.add(todo_task);
-		 todo_task=new Todo_Tasks();
-		 todo_task.setId(2);
-		 todo_task.setDescription("task #2 description for todo #1");
-		 todo_task.setStatus("completed");
-		 todo_task.setTodo_Id(1);
-		 todo_tasks.add(todo_task);
-		 todo_task=new Todo_Tasks();
-		 todo_task.setId(3);
-		 todo_task.setDescription("task #3 description for todo #1");
-		 todo_task.setStatus("completed");
-		 todo_task.setTodo_Id(1);
-		 todo_tasks.add(todo_task);
-		 Todo todo = new Todo("Todo 1", "Sample Description",true,likes);
-		 todo.setId(1);
-		 todo.setTasks(todo_tasks);
-		 todos.add(todo);
-		 likes=new Todo_Likes();
-		 likes.setCount(70);
-		 todo_tasks=new ArrayList<Todo_Tasks>();
-		 todo_task=new Todo_Tasks();
-		 todo_task.setId(1);
-		 todo_task.setDescription("task #1 description for todo #2");
-		 todo_task.setStatus("completed");
-		 todo_task.setTodo_Id(2);
-		 todo_tasks.add(todo_task);
-		 todo_task=new Todo_Tasks();
-		 todo_task.setId(2);
-		 todo_task.setDescription("task #2 description for todo #2");
-		 todo_task.setStatus("completed");
-		 todo_task.setTodo_Id(2);
-		 todo_tasks.add(todo_task);
-		 todo_task=new Todo_Tasks();
-		 todo_task.setId(3);
-		 todo_task.setDescription("task #3 description for todo #2");
-		 todo_task.setStatus("completed");
-		 todo_task.setTodo_Id(2);
-		 todo_tasks.add(todo_task);
-		 todo=new Todo("Todo 2", "Sample Description",false,likes);
-		 todo.setId(2);
-		 todo.setTasks(todo_tasks);
-		 todos.add(todo);
-		 likes=new Todo_Likes();
-		 likes.setCount(300);
-		 todo_tasks=new ArrayList<Todo_Tasks>();
-		 todo_task=new Todo_Tasks();
-		 todo_task.setId(1);
-		 todo_task.setDescription("task #1 description for todo #3");
-		 todo_task.setStatus("completed");
-		 todo_task.setTodo_Id(3);
-		 todo_tasks.add(todo_task);
-		 todo_task=new Todo_Tasks();
-		 todo_task.setId(2);
-		 todo_task.setDescription("task #2 description for todo #3");
-		 todo_task.setStatus("completed");
-		 todo_task.setTodo_Id(3);
-		 todo_tasks.add(todo_task);
-		 todo_task=new Todo_Tasks();
-		 todo_task.setId(3);
-		 todo_task.setDescription("task #3 description for todo #3");
-		 todo_task.setStatus("completed");
-		 todo_task.setTodo_Id(3);
-		 todo_tasks.add(todo_task);
-		 todo=new Todo("Todo 3", "Sample Description",true,likes);
-		 todo.setId(3);
-		 todo.setTasks(todo_tasks);
-		 todos.add(todo);
-		 
-		 Map<String, Object> context = new HashMap<>();
-		    context.put("todos", todos);
-		    context.put("title", "To Do App");
-		    context.put("text", "List of ToDos");
-		 
-		 StringWriter writer = new StringWriter();
-		 //StringWriter v=(StringWriter) m.execute(writer, todo);
-		 StringWriter v=(StringWriter) m.execute(writer, context);
-		 v.flush();
-		 String HTML = writer.toString();
-		 System.out.println("returning response");
-		 HtmlConverter.convertToPdf(HTML,
-					new FileOutputStream(System.getProperty("user.home") + "\\Downloads\\" + "string-to-pdf.pdf"));
-        return HTML;
-	}
+//	@GET
+//	@Path("/html")
+//	@Produces(MediaType.TEXT_HTML)
+//	public String gotItHtmlTemplate(@Context ServletContext ctx) throws InvalidPasswordException, IOException {
+//		 MustacheFactory mf = new DefaultMustacheFactory();
+//		 //String path="C:\\users\\THE LAPTOP STORE\\Downloads\todo.mustache";
+//		 Mustache m = mf.compile("todonested.mustache");
+//		 Todo_Likes likes=new Todo_Likes();
+//		 likes.setCount(3);
+//		 List<Todo> todos=new ArrayList<Todo>();
+//		 List<Todo_Tasks> todo_tasks=new ArrayList<Todo_Tasks>();
+//		 Todo_Tasks todo_task=new Todo_Tasks();
+//		 todo_task.setId(1);
+//		 todo_task.setDescription("task #1 description for todo #1");
+//		 todo_task.setStatus("completed");
+//		 todo_task.setTodo_Id(1);
+//		 todo_tasks.add(todo_task);
+//		 todo_task=new Todo_Tasks();
+//		 todo_task.setId(2);
+//		 todo_task.setDescription("task #2 description for todo #1");
+//		 todo_task.setStatus("completed");
+//		 todo_task.setTodo_Id(1);
+//		 todo_tasks.add(todo_task);
+//		 todo_task=new Todo_Tasks();
+//		 todo_task.setId(3);
+//		 todo_task.setDescription("task #3 description for todo #1");
+//		 todo_task.setStatus("completed");
+//		 todo_task.setTodo_Id(1);
+//		 todo_tasks.add(todo_task);
+//		 Todo todo = new Todo("Todo 1", "Sample Description",true,likes);
+//		 todo.setId(1);
+//		 todo.setTasks(todo_tasks);
+//		 todos.add(todo);
+//		 likes=new Todo_Likes();
+//		 likes.setCount(70);
+//		 todo_tasks=new ArrayList<Todo_Tasks>();
+//		 todo_task=new Todo_Tasks();
+//		 todo_task.setId(1);
+//		 todo_task.setDescription("task #1 description for todo #2");
+//		 todo_task.setStatus("completed");
+//		 todo_task.setTodo_Id(2);
+//		 todo_tasks.add(todo_task);
+//		 todo_task=new Todo_Tasks();
+//		 todo_task.setId(2);
+//		 todo_task.setDescription("task #2 description for todo #2");
+//		 todo_task.setStatus("completed");
+//		 todo_task.setTodo_Id(2);
+//		 todo_tasks.add(todo_task);
+//		 todo_task=new Todo_Tasks();
+//		 todo_task.setId(3);
+//		 todo_task.setDescription("task #3 description for todo #2");
+//		 todo_task.setStatus("completed");
+//		 todo_task.setTodo_Id(2);
+//		 todo_tasks.add(todo_task);
+//		 todo=new Todo("Todo 2", "Sample Description",false,likes);
+//		 todo.setId(2);
+//		 todo.setTasks(todo_tasks);
+//		 todos.add(todo);
+//		 likes=new Todo_Likes();
+//		 likes.setCount(300);
+//		 todo_tasks=new ArrayList<Todo_Tasks>();
+//		 todo_task=new Todo_Tasks();
+//		 todo_task.setId(1);
+//		 todo_task.setDescription("task #1 description for todo #3");
+//		 todo_task.setStatus("completed");
+//		 todo_task.setTodo_Id(3);
+//		 todo_tasks.add(todo_task);
+//		 todo_task=new Todo_Tasks();
+//		 todo_task.setId(2);
+//		 todo_task.setDescription("task #2 description for todo #3");
+//		 todo_task.setStatus("completed");
+//		 todo_task.setTodo_Id(3);
+//		 todo_tasks.add(todo_task);
+//		 todo_task=new Todo_Tasks();
+//		 todo_task.setId(3);
+//		 todo_task.setDescription("task #3 description for todo #3");
+//		 todo_task.setStatus("completed");
+//		 todo_task.setTodo_Id(3);
+//		 todo_tasks.add(todo_task);
+//		 todo=new Todo("Todo 3", "Sample Description",true,likes);
+//		 todo.setId(3);
+//		 todo.setTasks(todo_tasks);
+//		 todos.add(todo);
+//		 
+//		 Map<String, Object> context = new HashMap<>();
+//		    context.put("todos", todos);
+//		    context.put("title", "To Do App");
+//		    context.put("text", "List of ToDos");
+//		 
+//		 StringWriter writer = new StringWriter();
+//		 //StringWriter v=(StringWriter) m.execute(writer, todo);
+//		 StringWriter v=(StringWriter) m.execute(writer, context);
+//		 v.flush();
+//		 String HTML = writer.toString();
+//		 System.out.println("returning response");
+//		 HtmlConverter.convertToPdf(HTML,
+//					new FileOutputStream(System.getProperty("user.home") + "\\Downloads\\" + "string-to-pdf.pdf"));
+//        return HTML;
+//	}
 
 //	@GET
 //	@Path("/{id}")
