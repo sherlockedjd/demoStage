@@ -12,13 +12,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import javax.servlet.ServletContext;
+//import javax.servlet.ServletContext;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.Context;
+//import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
@@ -85,7 +85,7 @@ public class MyResource {
 	@GET
 	@Path("/html")
 	@Produces(MediaType.TEXT_HTML)
-	public String gotItHtmlTemplate(@Context ServletContext ctx) throws InvalidPasswordException, IOException {
+	public String gotItHtmlTemplate() throws InvalidPasswordException, IOException {
 		 MustacheFactory mf = new DefaultMustacheFactory();
 		 //String path="C:\\users\\THE LAPTOP STORE\\Downloads\todo.mustache";
 		 Mustache m = mf.compile("todonested.mustache");
